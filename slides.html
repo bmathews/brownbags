@@ -139,7 +139,7 @@ What do you suppose the above html will display? ... Yes, a list of items.
       <pre class="prettyprint" data-lang="4nGu|4r5">
 directive('list', function () {
     return {
-      restrict: 'EA', // Says, restrict this directive to an element or an attribute
+      restrict: 'AE', // Says, restrict this directive to an element or an attribute
       template: '&lt;ul class="list"&gt;' +
                   '&lt;li ng-repeat="item in items" class="filled"&gt;' +
                       '{{ item }}' +
@@ -191,6 +191,19 @@ $scope.myDate = new Date();
       <h3>$http</h3>
     </hgroup>
     <article>
+      <ul>
+        <li>The most basic way of accessing remote resourses</li>
+        <li>Has convenience methods for performing all the basic rest methods GET, POST, DELETE, and PUT.</li>
+        <li>Returns a promise, but also has convenience methods for success and error</li>
+      </ul>
+      <pre class='prettyprint' data-lang="javascript">
+  $http.get("/some/url/items.json")
+    .then(function (data) {
+      $scope.items = data;
+    }, function() {
+      alert("Error occurred");
+    });
+      </pre>
     </article>
   </slide>
 
@@ -262,14 +275,7 @@ $scope.myDate = new Date();
       </ul>
     </article>
   </slide>
-
-
-
   <slide class="backdrop"></slide>
-
-
-
 </slides>
-
 </body>
 </html>
