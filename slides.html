@@ -198,12 +198,9 @@ $scope.myDate = new Date();
     </article>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Live Coding!</h2>
-      <h3>Todo List</h3>
-    </hgroup>
+  <slide style="padding:0px !important">
     <article>
+      <iframe src="http://plnkr.co/edit/dHguvcNeSRcJDtnEAlnu"></iframe>
     </article>
   </slide>
 
@@ -258,11 +255,18 @@ $scope.myDate = new Date();
 
   <slide>
     <hgroup>
-      <h2>Performance</h2>
+      <h2>General Tips</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Lessons Learned</li>
+        <li>Performance
+          <ul>
+            <li>Be mindful about how angular processes expressions, avoid using functions</li>
+          </ul>
+        </li>
+        <li>
+          If you use a framework outside of angular, such as jquery, you must call $scope.$digest() to tell angular something has changed.
+        </li>
       </ul>
     </article>
   </slide>
