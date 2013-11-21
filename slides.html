@@ -37,9 +37,16 @@
   <slide>
     <hgroup>
       <h2>Introduction</h2>
-      <h3>AngularJs Origin</h3>
     </hgroup>
     <article>
+      <ul>
+        <li>MV* Framework</li>
+        <li>Came about in 2009</li>
+        <li>No external dependencies</li>
+        <li>Maintained by Google</li>
+        <li>Different than other frameworks in that it tries to extend HTML rather than fighting it</li>
+        <li>Use regular javascript rather than extending "proprietary" types</li>
+      </ul>
     </article>
   </slide>
 
@@ -79,7 +86,7 @@
       </ul>
       <pre class="prettyprint" data-lang="javascript">
   var mod = angular.module('myMod', []);
-  mod.controller('MyController', ['$scope', function($scope) {
+  mod.<b>controller('MyController'</b>, ['$scope', function($scope) {
     $scope.title = "myTitle";
     $scope.changeTitle = function() {
       $scope.title = "Some other contents";
@@ -87,7 +94,7 @@
   }]);
       </pre>
       <pre class="prettyprint" data-lang="html">
-&lt;div ng-controller="MyController">
+&lt;div <b>ng-controller="MyController"></b>
   &lt;div>{{ title }}&lt;/div>
   &lt;div ng-click="changeTitle">&lt;/div>
 &lt;/div>
@@ -111,11 +118,11 @@
         <li>Allows the HTML to be very declarative</li>
       </ul>
       <pre class="prettyprint" data-lang="html">
-&lt;list items="myArray">&lt;/list>
+&lt;<b>list</b> items="myArray">&lt;/list>
 &lt;!-- Or  -->
-&lt;div list items="myArray"&gt;&lt;/div&gt;
+&lt;div <b>list</b> items="myArray"&gt;&lt;/div&gt;
 &lt;!-- Or  -->
-&lt;div data-list data-items="myArray"&gt;&lt;/div&gt;
+&lt;div <b>data-list</b> data-items="myArray"&gt;&lt;/div&gt;
 </pre>
 What do you suppose the above html will display? ... Yes, a list of items.
     </article>
