@@ -158,6 +158,7 @@ if (false) {
   var i = 10;
 }
 </pre>
+<p>Variable hoisting does: </p>
 
 <pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
 var i;
@@ -178,21 +179,21 @@ if (false) {
       <h3>ES6</h3>
     </hgroup>
     <article>
-
+<p>New keyword: <code><span class="blue">let</span> </p></code>
       <div class="build">
-<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+<pre style="font-size: 1em; line-height: .9em;" class='prettyprint' data-lang="javascript">
 console.log(i); //ReferenceError: i is not defined
 if (false) {
   <b>let</b> i = 10;
 }
 </pre>
-<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+<pre style="font-size: 1em; line-height: .9em;" class='prettyprint' data-lang="javascript">
 if (false) {
   <b>let</b> i = 10;
 }
 console.log(i); //ReferenceError: i is not defined
 </pre>
-<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+<pre style="font-size: 1em; line-height: .9em;" class='prettyprint' data-lang="javascript">
 for (<b>let</b> i = 0; i < 10; i++) {
   console.log(i);
 }
