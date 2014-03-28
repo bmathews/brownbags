@@ -1,7 +1,7 @@
 jsnext
 ==================
 
-###slides for jsnext brownbage (ES6 and Web Components)
+###slides for jsnext brownbag (ES6 and Web Components)
 
 
 view with 
