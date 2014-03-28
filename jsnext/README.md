@@ -1,7 +1,7 @@
-brownbag-angularjs
+jsnext
 ==================
 
-###slides for angularjs brownbag
+###slides for jsnext brownbage (ES6 and Web Components)
 
 
 view with 
