@@ -34,152 +34,228 @@
     </hgroup>
   </slide>
 
-  <slide>
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vcenter ">
+      <h1 style="font-size: 100px;">ES6</h1>
+      <h3 style="">and</h3>
+      <h1 style="font-size: 100px;">Web Components</h1>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vcenter ">
+      <h1 style="font-size: 100px;">What is ES6?</h1>
+    </article>
+  </slide>
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vcenter ">
+      <h1 style="font-size: 100px;">ECMAScript</h1>
+      <h2 style="">==</h2>
+      <h1 style="font-size: 100px;">JavaScript</h1>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
     <hgroup>
-      <h2>Introduction</h2>
+      <h2 style="font-size: 100px;">ES5</h2>
     </hgroup>
     <article>
-      <ul>
-        <li>MV* Framework</li>
-        <li>Came about in 2009</li>
-        <li>No external dependencies</li>
-        <li>Maintained by Google</li>
-        <li>Use regular javascript rather than extending "proprietary" types</li>
+      <ul class="build " style="font-size: 3em;">
+        <li>Array.forEach/map/filter</li>
+        <li>Function.bind</li>
+        <li>Object.create</li>
+        <li>Object.defineProperty</li>
       </ul>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+      <h2 style="font-size: 100px;">ES6</h2>
+    </hgroup>
+    <article>
+          <ul class="build" style="width: 45%;float: left; font-size: 2em;">
+            <li>classes</li>
+            <li>modules</li>
+            <li>arrow functions</li>
+            <li>rest parameters</li>
+            <li>for ... of</li>
+            <li>iterators</li>
+          </ul>
+          <ul class="build" style="width: 45%;float: right; font-size: 2em;">
+            <li>generators</li>
+            <li>destructuring</li>
+            <li>block-scoped variables</li>
+            <li>WeakMaps</li>
+            <li>proxies</li>
+            <li>And more!</li>
+          </ul>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>Templating</h3>
+      <h2>Rest parameters</h2>
+      <h3>ES6</h3>
     </hgroup>
     <article>
-      <ul>
-        <li>Utilizes HTML for its templating.</li>
-        <li>Angular uses a javascript like syntax for template expressions.
-          <ul>
-            <li>You can reference properties, call functions, or even run math expressions.
-            <li>You can use comparison & logical operators so (===, &&, ||), however ternary does not work.</li>
-        </li>
-      </ul>
-      <pre class="prettyprint" data-lang="html">
-&lt;div>{{ title }}&lt;/div>
-&lt;div>{{ getTitle() }}&lt;/div>
-&lt;div>{{ a * b }}&lt;/div>
-&lt;div>{{ someVal || someVal2 }}&lt;/div>
-&lt;div style="{{ getStyle() }}">&lt;/div>
+      <div class="build">
+      <pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+function log (level) {
+  var args = Array.prototype.slice.call(arguments, 1);
+}
+// log('info', 'Logged in: ', userObj)</pre>
+      <pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+function log (level, <b>...args</b>) {
+  // args is a REAL array.
+}</pre>
+<p>'...' takes the remaining params and stuffs them into an array.</p>
+</div>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Default paramaters</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+function log (msg, prefix) {
+  if (prefix === undefined) {
+    prefix = "> ";
+  }
+  console.log(prefix + message);
+}
 </pre>
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+function log (msg, <b>prefix = "> "</b>) {
+  console.log(prefix + message);
+}
+</pre>
+
+
+</div>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>Controllers</h3>
-    </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>Does not care about the view implementation, but provides methods and properties that the view utilizes.</li>
-        <li>The $scope object provides the scope for the expressions evaluated within the view/template.</li>
-      </ul>
-      <pre class="prettyprint" data-lang="javascript">
-  var mod = angular.module('myMod', []);
-  mod.<b>controller('MyController'</b>, ['$scope', function($scope) {
-    $scope.title = "myTitle";
-    $scope.changeTitle = function() {
-      $scope.title = "Some other contents";
-    };
-  }]);
-      </pre>
-      <pre class="prettyprint" data-lang="html">
-&lt;div <b>ng-controller="MyController"></b>
-  &lt;div>{{ title }}&lt;/div>
-  &lt;div ng-click="changeTitle">&lt;/div>
-&lt;/div>
-      </pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>Directives</h3>
+      <h2>Block-scoped vars</h2>
+      <h3>ES6</h3>
     </hgroup>
     <article>
-      <ul>
-        <li>Angular's way of creating custom elements or attributes.</li>
-        <li>Only directives should interact with the dom
-            <ul>
-              <li>Which means controllers shouldn't be!</li>
-            </ul>
-        </li>
-        <li>Allows the HTML to be very declarative</li>
-      </ul>
-      <pre class="prettyprint" data-lang="html">
-&lt;<b>list</b> items="myArray">&lt;/list>
-&lt;!-- Or  -->
-&lt;div <b>list</b> items="myArray"&gt;&lt;/div&gt;
-&lt;!-- Or  -->
-&lt;div <b>data-list</b> data-items="myArray"&gt;&lt;/div&gt;
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+console.log(i);
+if (false) {
+  var i = 10;
+}
 </pre>
-What do you suppose the above html will display? ... Yes, a list of items.
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+var i;
+console.log(i);
+if (false) {
+  i = 10;
+}
+</pre>
+
+</div>
+    </article>
+  </slide>
+    
+
+    <slide>
+    <hgroup>
+      <h2>Block-scoped vars (continued)</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+
+      <div class="build">
+<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+console.log(i); //ReferenceError: i is not defined
+if (false) {
+  <b>let</b> i = 10;
+}
+</pre>
+<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+if (false) {
+  <b>let</b> i = 10;
+}
+console.log(i); //ReferenceError: i is not defined
+</pre>
+<pre style="font-size: 1.15em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+for (<b>let</b> i = 0; i < 10; i++) {
+  console.log(i);
+}
+console.log(i); //ReferenceError: i is not defined
+</pre>
+</div>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>Directives - Continued</h3>
+      <h2>Arrow functions</h2>
+      <h3>ES6</h3>
     </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="4nGu|4r5">
-directive('list', function () {
-    return {
-      restrict: 'AE', // Says, restrict this directive to an element or an attribute
-      template: '&lt;ul class="list"&gt;' +
-                  '&lt;li ng-repeat="item in items" class="filled"&gt;' +
-                      '{{ item }}' +
-                  '&lt;/li&gt;' +
-                '&lt;/ul&gt;',
-      scope: {
-        items: "="
-      },
-      link: function (scope, elem, attrs) {
-        $(elem).draggable();
-      }
-    };
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+users.map(function (user) {
+  return user.name;
 });
 </pre>
+
+<pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+users.map(user => user.name);
+</pre>
+
+</div>
     </article>
   </slide>
-  <slide>
+
+    <slide>
     <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>Filters</h3>
+      <h2>Arrow functions</h2>
+      <h3>ES6</h3>
     </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>Provides an easy way to transform the result of a template expression</li>
-        <li>Use a filter by using a | after an expression</li>
-        <li>Parameters can be passed to a filter, by adding a : after the filter</li>
-        <li>Angular has a few built in filters, here are a few:
-          <ul>
-            <li>currency - Formats a number as a currency.</li>
-            <li>date - Formats date to a string based on the requested format.</li>
-            <li>uppercase - Converts string to uppercase.</li>
-          </ul>
-        </li>
-      </ul>
-      <pre class="prettyprint" data-lang="javascript">
-$scope.myNumber = 3.41;
-$scope.myDate = new Date();
-      </pre>
-      <pre class="prettyprint" data-lang="html">
-&lt;div>{{ myNumber | currency }}&lt;/div> &lt;!-- Shows $3.41 -->
-&lt;div>{{ myDate | date:"shortTime" }}&lt;/div> &lt;!-- Shows 4:00 pm -->
-      </pre>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+users.forEach(<b>function (user, index) {
+  this.processUser(user);</b>
+  //TypeError: Object window no method 'processUser'
+});
+</pre>
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+users.forEach(<b>(user, index) => {
+  this.processUser(user);</b>
+  // arrow functions have the scope you actually want.
+});
+</pre>
+
+</div>
     </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/ats_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Segue Slide</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
   </slide>
 
   <slide>
@@ -210,85 +286,17 @@ $scope.myDate = new Date();
     </article>
   </slide>
 
-  <slide style="padding:0px !important">
-    <article>
-      <iframe src="http://plnkr.co/edit/s7xPH7b3GcWWKqaPiQ12?p=preview"></iframe>
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/ats_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>Slides at: github.com/moonsspoon/brownbags</p>
     </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>BTI</h2>
-      <h3>Master Detail</h3>
-    </hgroup>
-    <article>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>BTI</h2>
-      <h3>Searchable List</h3>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Lazy Loading</li>
-        <li>Lazy Rendering</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>BTI</h2>
-      <h3>Itinerary</h3>
-    </hgroup>
-    <article>
-      <ul>
-        <li>General Features
-          <ul>
-            <li>Drag and Drop</li>
-            <li>Popup Editing</li>
-          </ul>
-        </li>
-        <li>Bulk Update Template</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>General Tips</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Performance
-          <ul>
-            <li>Be mindful about how angular processes expressions, avoid using functions</li>
-          </ul>
-        </li>
-        <li>
-          If you use a framework outside of angular, such as jquery, you must call $scope.$digest() to tell angular something has changed.
-        </li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Useful Links</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Angular Docs - <a href="http://docs.angularjs.org/api/">http://docs.angularjs.org/api/</a></li>
-        <li>TodoMVC - <a href="http://todomvc.com/">http://todomvc.com/</a>
-          <ul>
-            <li>Shows implementations of a todo list in various frameworks</li>
-          </ul>
-        </li>
-      </ul>
-    </article>
-  </slide>
   <slide class="backdrop"></slide>
 </slides>
 </body>

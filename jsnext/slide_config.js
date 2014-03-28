@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'AngularJS',
+    title: 'The Future of JS/HTML',
     subtitle: 'Brownbag',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
@@ -21,9 +21,6 @@ var SLIDE_CONFIG = {
     company: 'UI Designer & Developer'
   },{
     name: 'David Tittsworth',
-    company: 'Software Engineer'
-  },{
-    name: 'Steven Lambion',
     company: 'Software Engineer'
   }]
 };
