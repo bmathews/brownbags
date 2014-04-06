@@ -251,6 +251,141 @@ users.forEach(<b>(user, index) => {
     </article>
   </slide>
 
+
+    <slide>
+    <hgroup>
+      <h2>Classes</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+class Polygon {
+  constructor(height, width) { //class constructor
+    this.name = 'Polygon';
+    this.height = height;
+    this.width = width;
+  }
+
+  sayName() { //class method
+    console.log('Hi, I am a', this.name + '.');
+  }
+}
+</pre>
+
+</div>
+    </article>
+  </slide>
+
+
+
+    <slide>
+    <hgroup>
+      <h2>Classes (continued)</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1em; line-height: 1.1em;" class='prettyprint' data-lang="javascript">
+class Square extends Polygon {
+  constructor(length) {
+    super(length, length); //call the parent method with super
+    this.name = 'Square';
+  }
+  get area() { //calculated attribute getter
+    return this.height * this.width;
+  }
+}
+let s = new Square(5);
+console.log(s.area);
+
+
+</pre>
+
+</div>
+    </article>
+  </slide>
+
+      <slide>
+    <hgroup>
+      <h2>Modules</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+export var PI = 3.14;
+export function adder(a, b) {
+  return a + b;
+};
+// export { PI, adder }
+</pre>
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+import { adder as add, PI} from './mathLib';
+
+console.log('1 + 2 is ', add(1, 2));
+console.log('PI = ', PI);
+</pre>
+
+</div>
+    </article>
+  </slide>
+
+
+      <slide>
+    <hgroup>
+      <h2>Polymer</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="html">
+&lt;head&gt;
+  &lt;script src="bower_components/platform/platform.js"&gt;&lt;/script&gt;
+  &lt;link rel="import" href="welcome-message.html"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;welcome-message user="David"&gt;Welcome&lt;/welcome-message&gt;
+&lt;/body&gt;
+</pre>
+
+</div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Polymer (continued)</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <div class="build">
+
+<pre style="font-size: 1.1em; line-height: 1.1em;" class='prettyprint' data-lang="html">
+&lt;link rel="import" href="/bower_components/polymer/polymer.html"&gt;
+&lt;polymer-element name="welcome-message" attributes="user"&gt;
+  &lt;template&gt;
+    &lt;span id="message"&gt;&lt;/span&gt; {{ user }}
+  &lt;/template&gt;
+  &lt;script&gt;  
+    Polymer('welcome-message', { 
+      ready: function() {
+        this.$.message.innerHTML = this.textContent;
+      } 
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;
+</pre>
+
+</div>
+    </article>
+  </slide>
+
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/ats_icon_128.png"></aside>
     <hgroup class="auto-fadein">
