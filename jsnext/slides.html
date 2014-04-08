@@ -335,8 +335,135 @@ console.log('PI = ', PI);
     </article>
   </slide>
 
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vcenter ">
+      <h1 style="font-size: 100px;">Web Components</h1>
+    </article>
+  </slide>
 
-      <slide>
+  <slide>
+    <hgroup>
+      <h2>Is this what we want?</h2>
+      <h3>Bootstrap has some clean markup, but...</h3>
+    </hgroup>
+    <article>
+
+<pre style="font-size: 1.0em; line-height: 1.2em;" class='prettyprint' data-lang="html">
+&lt;div class="dropdown">
+  &lt;button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Dropdown
+    &lt;span class="caret">&lt;/span>
+  &lt;/button>
+  &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    &lt;li role="presentation">&lt;a role="menuitem" tabindex="-1" href="#">Action&lt;/a>&lt;/li>
+    &lt;li role="presentation">&lt;a role="menuitem" tabindex="-1" href="#">Another action&lt;/a>&lt;/li>
+    &lt;li role="presentation">&lt;a role="menuitem" tabindex="-1" href="#">Something else here&lt;/a>&lt;/li>
+    &lt;li role="presentation" class="divider">&lt;/li>
+    &lt;li role="presentation">&lt;a role="menuitem" tabindex="-1" href="#">Separated link&lt;/a>&lt;/li>
+  &lt;/ul>
+&lt;/div>
+</pre>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Wouldn't it be nice...</h2>
+      <h3>1) If elements actually meant something.</h3>
+      <h3>2) If we didn't have to care about classes/styles/roles in our 'consumer' markup.</h3>
+    </hgroup>
+    <article>
+
+<pre style="font-size: 1.0em; line-height: 1.2em;" class='prettyprint' data-lang="html">
+&lt;dropdown-menu label="Dropdown">
+  &lt;dropdown-item href="#">Action&lt;/dropdown-item>
+  &lt;dropdown-item href="#">Another Action&lt;/dropdown-item>
+  &lt;dropdown-divider>&lt;/dropdown-divider>
+  &lt;dropdown-item href="#">Separated Link&lt;/dropdown-item>
+&lt;/dropdown-menu>
+</pre>
+
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+      <h2 style="font-size: 100px;">Web Components Are</h2>
+    </hgroup>
+    <article>
+      <ul style="font-size: 3em; margin-top: 2em;">
+        <li>Encapsulated</li>
+        <li>Reusable</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+      <h2 style="font-size: 100px;">Web Components</h2>
+    </hgroup>
+    <article>
+      <ul style="font-size: 3em;">
+        <li>Templates</li>
+        <li>Custom Elements</li>
+        <li>Shadow Dom</li>
+        <li>HTML Imports</li>
+      </ul>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Templates</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <div>
+
+<pre style="font-size: 1.2em; line-height: 1.2em;" class='prettyprint' data-lang="html">
+&lt;template id="my-template">
+  &lt;script>alert("Don't run me!");&lt;/script>
+  &lt;header>This is some content.&lt;/header>
+  &lt;section>But it's inert.&lt;/section>
+&lt;/template>
+</pre>
+<pre style="font-size: 1.2em; line-height: 1.2em;" class='prettyprint' data-lang="javascript">
+var template = document.getElementById('my-template');
+document.body.appendChild(
+  document.importNode(template.content, true); // second argument is 'deep'
+);
+</pre>
+
+</div>
+    </article>
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>What are good are templates?</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <div style="font-size: 2em; line-height: 1.25em;">
+      <ul>
+        <li>Images aren't loaded, scripts aren't run.</li>
+        <li>Doesn't render until activated.</li>
+        <li>Can be inlined anywhere in HTML.</li>
+        <li>querySelector won't find its content.</li>
+      </ul>
+</div>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px;">Shadow DOM</h2>
+    </article>
+  </slide>
+
+  <slide>
     <hgroup>
       <h2>Polymer</h2>
       <h3>Web Components</h3>
@@ -386,13 +513,6 @@ console.log('PI = ', PI);
     </article>
   </slide>
 
-  <slide class="segue dark nobackground">
-    <aside class="gdbar"><img src="images/ats_icon_128.png"></aside>
-    <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-  </slide>
 
   <slide>
     <hgroup>
