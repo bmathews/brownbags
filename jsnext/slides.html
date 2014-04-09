@@ -683,9 +683,54 @@ var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccordi
   &lt;section>My super awesome content&lt;/section>
 &lt;/my-accordion>
 </pre>
-<a href="http://jsfiddle.net/pRm2e/">Example</a>
     </article>
   </slide>
+
+  <slide>
+    <article class="">
+    <a href="http://jsfiddle.net/pRm2e/embedded/">Full Screen</a>
+  <iframe style="width: 100%; height: 560px !important;" src="http://jsfiddle.net/pRm2e/embedded/result,html,js/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+    </article>
+  </slide>
+
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px; line-height: 100px;">Cool story, bro</h2>
+      <h2 style="font-size: 60px; line-height: 90px; opacity: .5;">Too bad I can't use any of this!</h2>
+    </article>
+  </slide>
+
+   <slide class="thank-you-slide nobackground" style="background: red !important;">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 200px; line-height: 200px;">WRONG~!!!</h2>
+      <h2 style="font-size: 60px; line-height: 60px; opacity: .5; ">(sort of)</h2>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px; line-height: 100px;"><img style="vertical-align: middle; "src="http://www.polymer-project.org/images/logos/p-logo.svg"/> Polymer</h2>
+      <h2 style="font-size: 50px; line-height: 150px; opacity: .8;">Sugar on top of polyfills</h2>
+      <h2 style="font-size: 30px; line-height: 50px; opacity: .6;">polymer-project.com</h2>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter" style="zoom: 1.2;">
+      <img src="http://4.bp.blogspot.com/-rPbEdmEpHWA/UeW4Xqmg0oI/AAAAAAAAAx0/33O2gWoYMgI/s1600/polymer-architecture.jpg"/>
+    </article>
+  </slide>
+
+  
 
   <slide>
     <hgroup>
@@ -737,32 +782,39 @@ var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccordi
     </article>
   </slide>
 
-
-  <slide>
-    <hgroup>
-      <h2>Basic Concepts</h2>
-      <h3>$http</h3>
-    </hgroup>
+<slide>
     <article>
-      <ul>
-        <li>The most basic way of accessing remote resourses</li>
-        <li>Has convenience methods for performing all the basic rest methods GET, POST, DELETE, and PUT.</li>
-        <li>Returns a promise, but also has convenience methods for success and error</li>
-      </ul>
-      <pre class='prettyprint' data-lang="javascript">
-  $http.get("/some/url/items.json")
-    .then(function (data) {
-      $scope.items = data;
-    }, function() {
-      alert("Error occurred");
-    });
-      </pre>
+    <a href="http://jsfiddle.net/8SP44/3/embedded/html,result">Full Screen</a>
+<iframe style="width: 100%; height: 560px !important;" src="http://jsfiddle.net/8SP44/3/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
     </article>
   </slide>
 
-  <slide style="padding:0px !important">
+  
+
+  <slide class="nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px; line-height: 100px;"><img style="vertical-align: middle; zoom: .4;"src="https://raw.github.com/google/traceur-compiler/master/logo/tc.png"/> Traceur</h2>
+      <h2 style="font-size: 50px; line-height: 150px; opacity: .8;">Compile JS.next to JS-of-today</h2>
+      <h2 style="font-size: 30px; line-height: 50px; opacity: .6;">github.com/google/traceur-compiler</h2>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Traceur</h2>
+      <h3>ES6</h3>
+    </hgroup>
     <article>
-      <iframe src="http://plnkr.co/edit/6to9NciyV3UDMIsL5o0n?p=preview"></iframe>
+      <ul style="font-size: 1.8em; line-height: 1.2em;">
+        <li>Write in ES6</li>
+        <li>Transpile to ES5</li>
+        <li>Usable in NodeJS or in the Browser</li>
+        <li>NodeJS > v0.11 already has most of ES6</li>
+      </ul>
     </article>
   </slide>
 
