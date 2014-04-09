@@ -669,13 +669,13 @@ shadow.appendChild(template.content);
     </hgroup>
     <article class="build">
 <pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
-var MyAccortionProto = Object.create(HTMLElement.prototype);
-MyAccortionProto.createdCallback = function() {
+var MyAccordionProto = Object.create(HTMLElement.prototype);
+MyAccordionProto.createdCallback = function() {
    var template = document.querySelector('#accordion-template');
    var shadow = this.createShadowRoot();
    shadow.appendChild(template.content);
 };
-var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccortionProto});
+var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccordionProto});
 </pre>
 <pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="html">
 &lt;my-accordion>
@@ -683,7 +683,7 @@ var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccorti
   &lt;section>My super awesome content&lt;/section>
 &lt;/my-accordion>
 </pre>
-<a href="http://jsfiddle.net/5K4kA/1/">Example</a>
+<a href="http://jsfiddle.net/5K4kA/3/">Example</a>
     </article>
   </slide>
 
