@@ -79,14 +79,14 @@
             <li>modules</li>
             <li>arrow functions</li>
             <li>rest parameters</li>
-            <li>for ... of</li>
+            <li>promises</li>
             <li>iterators</li>
           </ul>
           <ul class="build" style="width: 45%;float: right; font-size: 2em;">
             <li>generators</li>
             <li>destructuring</li>
             <li>block-scoped variables</li>
-            <li>WeakMaps</li>
+            <li>sets</li>
             <li>proxies</li>
             <li>And more!</li>
           </ul>
@@ -212,13 +212,13 @@ console.log(i); //ReferenceError: i is not defined
       <div class="build">
 
 <pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
-users.map(function (user) {
+let names = users.map(function (user) {
   return user.name;
 });
 </pre>
 
 <pre style="font-size: 1.25em; line-height: 1em;" class='prettyprint' data-lang="javascript">
-users.map(user => user.name);
+let names = users.map(user => user.name);
 </pre>
 
 </div>
@@ -236,7 +236,7 @@ users.map(user => user.name);
 <pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
 users.forEach(<b>function (user, index) {
   this.processUser(user);</b>
-  //TypeError: Object window no method 'processUser'
+  //TypeError: Object window has no method 'processUser'
 });
 </pre>
 
@@ -248,6 +248,98 @@ users.forEach(<b>(user, index) => {
 </pre>
 
 </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Generators (yield)</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+function *range(begin, end) {
+  for (let i = begin; i < end; ++i) {
+    yield i;
+  }
+}
+</pre>
+
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+for (let i of range(0, 10)) {
+  console.log(i); // 0, 1, 2, ... 10
+}
+</pre>
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+let generator = range(0, 10);
+console.log(generator.next()) // 0
+console.log(generator.next()) // 1
+</pre>
+    </article>
+  </slide>
+  <slide>
+    <hgroup>
+      <h2>Generators (yield)</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+let users = yield ajax('api/users');
+let sales = yield ajax('api/sales?userIds=' + users.map(user => user.id).join(','));
+
+render(users, sales);
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Destructuring</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+<pre style="font-size: 1.1em; line-height: 1.1em;" class='prettyprint' data-lang="javascript">
+var point = new Point(1, 2);
+var { x, y } = point;
+ 
+console.log(x); // 1
+console.log(y); // 2
+</pre>
+vs: <br/><br/>
+<pre style="font-size: 1.1em; line-height: 1.1em;" class='prettyprint' data-lang="javascript">
+var point = new Point(1, 2);
+var x = point.x,
+    y = point.y;
+ 
+console.log(x); // 1
+console.log(y); // 2
+</pre>
+
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Set collection</h2>
+      <h3>ES6</h3>
+    </hgroup>
+    <article>
+
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+var users = new Set();
+
+users.add(userA);
+users.add(userB);
+users.add(userB); // nope!
+
+users.size === 2; // true
+users.has(userC); // false
+</pre>
+Sets use === for comparisons. 
+
     </article>
   </slide>
 
@@ -389,18 +481,6 @@ console.log('PI = ', PI);
 
   <slide class="thank-you-slide nobackground">
     <hgroup>
-      <h2 style="font-size: 100px;">Web Components Are</h2>
-    </hgroup>
-    <article>
-      <ul style="font-size: 3em; margin-top: 2em;">
-        <li>Encapsulated</li>
-        <li>Reusable</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide class="thank-you-slide nobackground">
-    <hgroup>
       <h2 style="font-size: 100px;">Web Components</h2>
     </hgroup>
     <article>
@@ -462,6 +542,43 @@ document.body.appendChild(
       <h2 style="font-size: 100px;">Shadow DOM</h2>
     </article>
   </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Shadow DOM</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <div style="font-size: 2em; line-height: 1.25em;">
+      <ul class="build">
+        <li>Shadow DOM is a hidden, encapsulated DOM</li>
+        <li>Browsers have already been doing this for a while</li>
+        <li><pre>&lt;input type="search"/></pre></li>
+        <li><input style="zoom: 4;" type="search"/></li>
+      </ul>
+</div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Shadow DOM (continued)</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article>
+      <pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="html">
+&lt;button>Hello, world!&lt;/button>
+&lt;script>
+var host = document.querySelector('button');
+var root = host.createShadowRoot();
+root.textContent = 'こんにちは、影の世界!';
+&lt;/script>
+</pre>
+</div>
+    </article>
+  </slide>
+
+ 
 
   <slide>
     <hgroup>
