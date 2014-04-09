@@ -495,10 +495,18 @@ console.log('PI = ', PI);
     <article>
       <ul style="font-size: 3em;">
         <li>Templates</li>
-        <li>Custom Elements</li>
         <li>Shadow Dom</li>
+        <li>Custom Elements</li>
         <li>HTML Imports</li>
       </ul>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px;">Templates</h2>
     </article>
   </slide>
 
@@ -585,6 +593,15 @@ document.body.appendChild(template.content);
     </article>
   </slide>
 
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px; line-height: 100px;">Shadow DOM & Templates</h2>
+      <h2 style="font-size: 80px; line-height: 100px; opacity: .8">work together</h2>
+    </article>
+  </slide>
+
 <slide>
     <hgroup>
       <h2>Shadow DOM & Templates</h2>
@@ -634,7 +651,36 @@ shadow.appendChild(template.content);
     </article>
   </slide>
 
+  <slide class="thank-you-slide nobackground">
+    <hgroup>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 100px;">Custom Elements</h2>
+    </article>
+  </slide>
 
+
+  <slide>
+    <hgroup>
+      <h2>Custom Elements</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article class="build">
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+var AccordionProto = Object.create(HTMLElement.prototype);
+document.registerElement('my-accordion', {
+  prototype: AccordionProto
+});
+</pre>
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
+var el = document.createElement('my-accordion');
+document.body.appendChild(el);
+</pre>
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="html">
+&lt;my-accordion>woot!&lt;/my-accordion>
+</pre>
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
