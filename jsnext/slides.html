@@ -513,8 +513,8 @@ console.log('PI = ', PI);
 <pre style="font-size: 1.2em; line-height: 1.2em;" class='prettyprint' data-lang="html">
 &lt;template id="my-template">
   &lt;script>alert("Don't run me!");&lt;/script>
-  &lt;header>This is some content.&lt;/header>
-  &lt;section>But it's inert.&lt;/section>
+  &lt;div>This is some content.&lt;/div>
+  &lt;img src="bill.gif">But it's inert.&lt;/div>
 &lt;/template>
 </pre>
 <pre style="font-size: 1.2em; line-height: 1.2em;" class='prettyprint' data-lang="javascript">
@@ -577,9 +577,9 @@ document.body.appendChild(template.content);
       <pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="html">
 &lt;button>Hello, world!&lt;/button>
 &lt;script>
-var host = document.querySelector('button');
-var shadow = host.createShadowRoot();
-shadow.innerHTML = '&lt;i class="icon">&lt;i>' + host.textContent;
+  var host = document.querySelector('button');
+  var shadow = host.createShadowRoot();
+  shadow.innerHTML = '&lt;i class="icon">&lt;i>' + host.textContent;
 &lt;/script>
 </pre>
 </div>
