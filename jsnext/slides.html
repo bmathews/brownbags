@@ -667,18 +667,21 @@ shadow.appendChild(template.content);
     </hgroup>
     <article class="build">
 <pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
-var AccordionProto = Object.create(HTMLElement.prototype);
-document.registerElement('my-accordion', {
-  prototype: AccordionProto
-});
-</pre>
-<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="javascript">
-var el = document.createElement('my-accordion');
-document.body.appendChild(el);
+var MyAccortionProto = Object.create(HTMLElement.prototype);
+MyAccortionProto.createdCallback = function() {
+   var template = document.querySelector('#accordion-template');
+   var shadow = this.createShadowRoot();
+   shadow.appendChild(template.content);
+};
+var MyAccordion = document.registerElement('my-accordion', {prototype: MyAccortionProto});
 </pre>
 <pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="html">
-&lt;my-accordion>woot!&lt;/my-accordion>
+&lt;my-accordion>
+  &lt;header>Title&lt;/header>
+  &lt;section>My super awesome content&lt;/section>
+&lt;/my-accordion>
 </pre>
+<a href="http://jsfiddle.net/5K4kA/1/">Example</a>
     </article>
   </slide>
 
