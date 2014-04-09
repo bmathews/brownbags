@@ -579,14 +579,37 @@ document.body.appendChild(template.content);
 &lt;script>
   var host = document.querySelector('button');
   var shadow = host.createShadowRoot();
-  shadow.innerHTML = '&lt;i class="icon">&lt;i>' + host.textContent;
+  shadow.innerHTML = '&lt;i class="sparkles">&lt;i>' + host.textContent;
 &lt;/script>
 </pre>
-</div>
     </article>
   </slide>
 
- 
+<slide>
+    <hgroup>
+      <h2>Shadow DOM & Templates</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article class="build">
+<pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="html">
+&lt;template id="accordion-template">
+  &lt;div class="header">&lt;span class="toggle">&lt;/span>&lt;/div>
+  &lt;div class="content-body"><b>&lt;content>&lt;/content></b>&lt;/div>
+&lt;/template>
+...
+&lt;div id="accordion">Hello, accordion!&lt;/div>
+</pre>
+      <pre style="font-size: 1.25em; line-height: 1.25em;" class='prettyprint' data-lang="javascript">
+var template = document.querySelector('#accordion-template');
+var shadow = document.querySelector('#accordion').createShadowRoot();
+shadow.appendChild(template.content);
+</pre>
+
+    </article>
+  </slide>
+
+
+
 
   <slide>
     <hgroup>
