@@ -432,10 +432,19 @@ console.log('PI = ', PI);
       <h1 style="font-size: 100px;">Web Components</h1>
     </article>
   </slide>
+ <slide>
+    <hgroup>
+      <h2>The current state of HTML</h2>
+      <h3>(gmail)</h3>
+    </hgroup>
+    <article>
+      <img src="https://i.cloudup.com/P8HXhg9kt3.png"/>
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
-      <h2>Is this what we want?</h2>
+      <h2>Let's look at a dropdown</h2>
       <h3>Bootstrap has some clean markup, but...</h3>
     </hgroup>
     <article>
@@ -510,9 +519,7 @@ console.log('PI = ', PI);
 </pre>
 <pre style="font-size: 1.2em; line-height: 1.2em;" class='prettyprint' data-lang="javascript">
 var template = document.getElementById('my-template');
-document.body.appendChild(
-  document.importNode(template.content, true); // second argument is 'deep'
-);
+document.body.appendChild(template.content);
 </pre>
 
 </div>
@@ -549,10 +556,11 @@ document.body.appendChild(
       <h3>Web Components</h3>
     </hgroup>
     <article>
-      <div style="font-size: 2em; line-height: 1.25em;">
+      <div style="font-size: 1.8em; line-height: 1.1em;">
       <ul class="build">
-        <li>Shadow DOM is a hidden, encapsulated DOM</li>
-        <li>Browsers have already been doing this for a while</li>
+        <li>Shadow DOM is a hidden, encapsulated DOM.</li>
+        <li>Browsers have already been doing this for a while,</li>
+        <li>... they've just been holding out on us.</li>
         <li><pre>&lt;input type="search"/></pre></li>
         <li><input style="zoom: 4;" type="search"/></li>
       </ul>
@@ -570,8 +578,8 @@ document.body.appendChild(
 &lt;button>Hello, world!&lt;/button>
 &lt;script>
 var host = document.querySelector('button');
-var root = host.createShadowRoot();
-root.textContent = 'こんにちは、影の世界!';
+var shadow = host.createShadowRoot();
+shadow.innerHTML = '&lt;i class="icon">&lt;i>' + host.textContent;
 &lt;/script>
 </pre>
 </div>
