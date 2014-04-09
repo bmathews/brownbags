@@ -607,7 +607,32 @@ shadow.appendChild(template.content);
 
     </article>
   </slide>
+<slide>
+    <hgroup>
+      <h2>Shadow DOM & Templates</h2>
+      <h3>Web Components</h3>
+    </hgroup>
+    <article class="build">
+<pre style="font-size: 1em; line-height: 1em;" class='prettyprint' data-lang="html">
+&lt;template id="accordion-template">
+  &lt;div class="header">
+    <b>&lt;content select="header">&lt;/content></b>
+    &lt;span class="toggle">&lt;/span>
+  &lt;/div>
+  &lt;div class="content-body">
+    <b>&lt;content select="section">&lt;/content></b>
+  &lt;/div>
+&lt;/template>
+</pre>
+      <pre style="font-size: 1.1em; line-height: 1.1em;" class='prettyprint' data-lang="html">
+&lt;div id="accordion">
+  &lt;header>Title&lt;/header>
+  &lt;section>My super awesome content&lt;/section>
+&lt;/div>
+</pre>
 
+    </article>
+  </slide>
 
 
 
